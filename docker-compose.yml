@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: pg-ms-notification
+    image: postgres
+    hostname: localhost
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: notification_db
+    volumes:
+      - postgres-data2:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - ms-userprofile_default
+
+volumes:
+  postgres-data2:
+
+networks:
+  ms-userprofile_default:
+    name: ms-userprofile_default
+    external: true

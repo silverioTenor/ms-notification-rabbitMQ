@@ -1,0 +1,43 @@
+# =================================
+# = Server
+# =================================
+server:
+   port: 8082
+
+# =================================
+# = Spring
+# =================================
+spring:
+   application:
+      name: notification
+   datasource:
+      url: jdbc:postgresql://<YOUR-HOST>/notification_db
+      username: admin
+      password: root
+   jpa:
+      hibernate:
+         ddl-auto: update
+      properties:
+         hibernate:
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+   rabbitmq:
+      addresses:
+   mail:
+      host:
+      port:
+      username:
+      password:
+      properties:
+         mail:
+            smtp:
+               auth: true
+               starttls:
+                  enable: true
+
+# =================================
+# = RabbitMQ
+# =================================
+broker:
+   queue:
+      notification:
+         name: default.notification
